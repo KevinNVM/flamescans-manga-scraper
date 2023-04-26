@@ -50,6 +50,42 @@ GET /
 }
 ```
 
+### `/home`
+
+Returns a JSON array of objects containing information about `Popular` and etc.
+
+#### Request 
+
+```
+GET /home
+```
+
+#### Response
+
+```json
+{"status":200,"data":[{"title":"Popular Today","list":[
+{"title":"Omniscient Reader’s Viewpoint","id":"omniscient-readers-viewpoint","rating":10,"image":"https://flamescans.org/wp-content/uploads/2021/01/ORV-NEW-COVER2.webp","status":"Ongoing"}, ...]
+},{"title":"Staff Pick","list":[{"title":"The Novel's Extra (Remake)","id":"the-novels-extra-remake","image":"https://flamescans.org/wp-content/uploads/2022/02/Cover.png"}, ...]}]}
+```
+
+### `/search/<search parameter>?page=1`
+
+Returns a JSON array of objects containing result about searched items.
+
+#### Request
+
+```
+GET /search/<searchParam>?page=<pageNumber>
+```
+
+#### Parameter
+
+| Parameter | Required | Description                                                                                         |
+| --------- | -------- | --------------------------------------------------------------------------------------------------- |
+| searchParam    | Yes       | Search Paramter )    |
+| pageNumber    | No       | Defaults to 1 )    |
+
+
 ### `/series`
 
 Returns a JSON object containing information about manga series from the FlameScans website.
