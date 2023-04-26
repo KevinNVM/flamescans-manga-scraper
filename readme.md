@@ -6,6 +6,16 @@ Welcome to the FlameScans manga scraper API. This API allows you to retrieve inf
 
 The base URL for this API is `http://localhost:3000`. All endpoints will be relative to this URL.
 
+## Installation
+
+You can install this by running the code below in a terminal.
+
+```
+git clone https://github.com/KevinNVM/flamescans-manga-scraper.git
+cd flamescans-manga-scraper
+node index.js # or nodemon index.js
+```
+
 ## Endpoints
 
 ### `/`
