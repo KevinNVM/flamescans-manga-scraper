@@ -12,6 +12,7 @@ The base URL for this API is `http://localhost:3000`. All endpoints will be rela
 
 ```
 git clone https://github.com/KevinNVM/flamescans-manga-scraper.git
+cd flamescans-manga-scraper
 ```
 
 2. Install dependencies
