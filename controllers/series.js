@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 const getIdFromUrl = require("../utils/getIdFromUrl");
 const origin = require("../variables")?.origin;
 
-module.exports = async (queryString) => {
+module.exports = async (queryString = "") => {
   try {
     const url = origin + `/series/?${queryString}`;
     const response = await fetch(url);

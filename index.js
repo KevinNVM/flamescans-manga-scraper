@@ -1,5 +1,8 @@
 const express = require("express");
 
+// test deps
+const fetch = require("node-fetch");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +13,13 @@ app.use(express.json());
 
 // Routes
 app.use(require("./router/routes"));
+
+// Testing for deployment
+app.get("/test", async (req, res) => {
+  const response = await fetch("https://flamescans.org");
+  const data = await response.text();
+  return data;
+});
 
 // Middleware for handling unknown routes
 app.use((req, res, next) => {
