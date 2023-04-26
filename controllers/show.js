@@ -22,6 +22,18 @@ module.exports = async (id) => {
     $("p img").each(function () {
       const src = $(this).attr("src");
       if (src) {
+        if (
+          src.includes(
+            "https://flamescans.org/wp-content/uploads/2022/05/readonflamescans.png"
+          ) ||
+          src.includes(
+            "https://flamescans.org/wp-content/uploads/2022/07/999black-KTL.jpg"
+          ) ||
+          src.includes("999black-KTL") ||
+          src.includes("readonflamescans")
+        )
+          return;
+
         imgSrcs.push(src);
       }
     });
