@@ -63,9 +63,26 @@ GET /home
 #### Response
 
 ```json
-{"status":200,"data":[{"title":"Popular Today","list":[
-{"title":"Omniscient Reader’s Viewpoint","id":"omniscient-readers-viewpoint","rating":10,"image":"https://flamescans.org/wp-content/uploads/2021/01/ORV-NEW-COVER2.webp","status":"Ongoing"}, ...]
-},{"title":"Staff Pick","list":[{"title":"The Novel's Extra (Remake)","id":"the-novels-extra-remake","image":"https://flamescans.org/wp-content/uploads/2022/02/Cover.png"}, ...]}]}
+{
+    "status": 200,
+    "data": [{
+        "title": "Popular Today",
+        "list": [{
+            "title": "Omniscient Reader’s Viewpoint",
+            "id": "omniscient-readers-viewpoint",
+            "rating": 10,
+            "image": "https://flamescans.org/wp-content/uploads/2021/01/ORV-NEW-COVER2.webp",
+            "status": "Ongoing"
+        }, ...]
+    }, {
+        "title": "Staff Pick",
+        "list": [{
+            "title": "The Novel's Extra (Remake)",
+            "id": "the-novels-extra-remake",
+            "image": "https://flamescans.org/wp-content/uploads/2022/02/Cover.png"
+        }, ...]
+    }]
+}
 ```
 
 ### `/search/<search parameter>?page=1`
