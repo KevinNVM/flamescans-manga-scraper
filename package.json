@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "Web scraping tutorial",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "KevinNVM",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "node-fetch": "^2.6.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

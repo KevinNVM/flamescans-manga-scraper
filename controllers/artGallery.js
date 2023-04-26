@@ -2,38 +2,26 @@ const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 const origin = require("../variables")?.origin;
 
-module.exports = async (id) => {
+module.exports = async () => {
   try {
-    const url = origin + id;
+    const url = `${origin}/art-gallery`;
     const response = await fetch(url);
     const data = await response.text();
-
     if (response.status !== 200) {
       throw new Error("Status: " + response.status);
     }
-
     const $ = cheerio.load(data);
 
     //
 
-    const imgSrcs = [];
-    const title = $("h1.entry-title").text().trim();
+    const imageSrcList = [];
 
-    $("p img").each(function () {
-      const src = $(this).attr("src");
-      if (src) {
-        imgSrcs.push(src);
-      }
+    $(".gallery-item img").each((index, element) => {
+      const src = $(element).attr("src");
+      imageSrcList.push(src);
     });
 
-    const output = {
-      id,
-      title,
-      count: imgSrcs.length,
-      imgSrcs,
-    };
-
-    return output;
+    return { count: imageSrcList.length, imageSrcList };
   } catch (error) {
     console.error(error);
   }

@@ -1,7 +1,5 @@
-const fs = require("fs");
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
-const makeResponseObject = require("../utils/makeResponseObject");
 const getIdFromUrl = require("../utils/getIdFromUrl");
 const origin = require("../variables")?.origin;
 
@@ -24,13 +22,13 @@ module.exports = async (queryString) => {
       const thumbnail = $(el).find("img").attr("src");
       const rating = $(el).find(".numscore").text();
       const status = $(el).find(".status i").text();
-      const id = getIdFromUrl($(el).attr("href"));
+      const id = getIdFromUrl($(el).attr("href"), true);
 
       comics.push({
         id,
         title,
         thumbnail,
-        rating: rating === "1010" ? "100" : rating,
+        rating: rating === "1010" ? 10 : parseInt(rating[0]),
         status,
       });
     });
@@ -52,6 +50,7 @@ module.exports = async (queryString) => {
       nextPage: parseInt(nextPageNumber),
       type: new URLSearchParams(queryString).get("type") || "All",
       status: new URLSearchParams(queryString).get("status") || "All",
+      order: new URLSearchParams(queryString).get("order") || "Default",
       count: comics.length,
       comics,
     };

@@ -1,50 +1,15 @@
 const express = require("express");
-const makeResponseObject = require("./utils/makeResponseObject");
-const series = require("./controllers/series");
-const details = require("./controllers/details");
-const show = require("./controllers/show");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+require("dotenv").config();
 
 // Middleware for parsing JSON body
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to `FlameScans` manga scraper",
-    apiStatus: true,
-    github: "https://github.com/KevinNVM/flamescans-manga-scraper",
-    createdAt: "26/04/2023",
-  });
-});
-
-// Route for /series endpoint
-app.get("/series", async (req, res) => {
-  try {
-    const queryString = req.url.split("?")[1];
-    res.json(makeResponseObject(await series(queryString)));
-  } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// Route for /details endpoint
-app.get("/details/:id", async (req, res) => {
-  try {
-    res.json(makeResponseObject(await details(req.params.id)));
-  } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-// Route for /show endpoint
-app.get("/show/:id", async (req, res) => {
-  try {
-    res.json(makeResponseObject(await show(req.params.id)));
-  } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
+// Routes
+app.use(require("./router/routes"));
 
 // Middleware for handling unknown routes
 app.use((req, res, next) => {
@@ -61,6 +26,4 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
-});
+app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

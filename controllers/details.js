@@ -1,7 +1,5 @@
-const fs = require("fs");
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
-const makeResponseObject = require("../utils/makeResponseObject");
 const origin = require("../variables")?.origin;
 const getIdFromUrl = require("../utils/getIdFromUrl");
 

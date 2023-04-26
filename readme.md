@@ -2,18 +2,28 @@
 
 ## Introduction
 
-Welcome to the FlameScans manga scraper API. This API allows you to retrieve information about manga series, chapters, and images from the FlameScans website.
+Welcome to the FlameScans manga scraper API. This API allows you to retrieve information about manga series, chapters, and images from the FlameScans website. All of the query parameter will also follow the FlameScans website's style.
 
 The base URL for this API is `http://localhost:3000`. All endpoints will be relative to this URL.
 
 ## Installation
 
-You can install this by running the code below in a terminal.
+1. First clone this repository
 
 ```
 git clone https://github.com/KevinNVM/flamescans-manga-scraper.git
-cd flamescans-manga-scraper
-node index.js # or nodemon index.js
+```
+
+2. Install dependencies
+
+```
+npm i
+```
+
+3. Run dev server
+
+```
+npm run dev
 ```
 
 ## Endpoints
@@ -51,11 +61,11 @@ GET /series?page=<pageNumber>&type=<type>&status=<status>
 
 #### Parameters
 
-| Parameter  | Required | Description                                                             |
-| ---------- | -------- | ----------------------------------------------------------------------- |
-| page | Yes      | The page number of the series list to retrieve                          |
-| type       | No       | The type of manga series to retrieve (e.g. `Manhwa`, `Manga`, `Manhua`, or leave empty for default) |
-| status     | No       | The status of manga series to retrieve (e.g. `Ongoing`, `Completed`, or leave empty for default)    |
+| Parameter | Required | Description                                                                                         |
+| --------- | -------- | --------------------------------------------------------------------------------------------------- |
+| page      | Yes      | The page number of the series list to retrieve                                                      |
+| type      | No       | The type of manga series to retrieve (e.g. `Manhwa`, `Manga`, `Manhua`, or leave empty for default) |
+| status    | No       | The status of manga series to retrieve (e.g. `Ongoing`, `Completed`, or leave empty for default)    |
 
 #### Response
 
