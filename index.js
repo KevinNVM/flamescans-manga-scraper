@@ -18,7 +18,7 @@ app.use(require("./router/routes"));
 app.get("/test", async (req, res) => {
   const response = await fetch("https://flamescans.org");
   const data = await response.text();
-  return data;
+  res.send(data);
 });
 
 // Middleware for handling unknown routes
