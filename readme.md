@@ -53,7 +53,7 @@ GET /series?page=<pageNumber>&type=<type>&status=<status>
 
 | Parameter  | Required | Description                                                             |
 | ---------- | -------- | ----------------------------------------------------------------------- |
-| pageNumber | Yes      | The page number of the series list to retrieve                          |
+| page | Yes      | The page number of the series list to retrieve                          |
 | type       | No       | The type of manga series to retrieve (e.g. `Manhwa`, `Manga`, `Manhua`, or leave empty for default) |
 | status     | No       | The status of manga series to retrieve (e.g. `Ongoing`, `Completed`, or leave empty for default)    |
 
