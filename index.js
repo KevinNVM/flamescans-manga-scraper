@@ -16,7 +16,12 @@ app.use(require("./router/routes"));
 
 // Testing for deployment
 app.get("/test", async (req, res) => {
-  const response = await fetch("https://flamescans.org");
+  const response = await fetch("https://flamescans.org", {
+    headers: {
+      "User-Agent":
+        "Opera/8.67 (X11; Linux x86_64; en-US) Presto/2.10.178 Version/11.00",
+    },
+  });
   const data = await response.text();
   res.send(data);
 });
