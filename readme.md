@@ -36,7 +36,7 @@ Returns a JSON object containing information about manga series from the FlameSc
 #### Request
 
 ```http
-GET /series?pageNumber=<pageNumber>&type=<type>&status=<status>
+GET /series?page=<pageNumber>&type=<type>&status=<status>
 ```
 
 #### Parameters
