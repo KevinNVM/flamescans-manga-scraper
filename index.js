@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const down = process.env.down || false;
 
 require("dotenv").config();
 
@@ -12,6 +13,15 @@ require("dotenv").config();
 app.use(express.json());
 
 // Routes
+if (down) {
+  app.use((req, res) => {
+    res.send({
+      status: 500,
+      message: "API is down.",
+    });
+  });
+}
+
 app.use(require("./router/routes"));
 
 // Testing for deployment
