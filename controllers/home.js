@@ -1,4 +1,5 @@
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
+const fetch = require('cloudscraper');
 const cheerio = require("cheerio");
 const getIdFromUrl = require("../utils/getIdFromUrl");
 const origin = require("../variables")?.origin;
