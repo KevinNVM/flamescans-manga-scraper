@@ -1,7 +1,8 @@
 const express = require("express");
 
 // test deps
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
+const fetch = require('cloudscraper');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,8 +33,7 @@ app.get("/test", async (req, res) => {
         "Opera/8.67 (X11; Linux x86_64; en-US) Presto/2.10.178 Version/11.00",
     },
   });
-  const data = await response.text();
-  res.send(data);
+  res.send(response);
 });
 
 // Middleware for handling unknown routes
